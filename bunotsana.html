@@ -1,0 +1,319 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bu Not Sana</title>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;1,400&family=Lora:ital,wght@0,400;1,400;1,500&display=swap" rel="stylesheet">
+    <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'><circle cx='16' cy='16' r='5' fill='%23C4885A'/><g fill='%234A7C59'><ellipse cx='16' cy='7' rx='3' ry='5'/><ellipse cx='16' cy='25' rx='3' ry='5'/><ellipse cx='7' cy='16' rx='5' ry='3'/><ellipse cx='25' cy='16' rx='5' ry='3'/></g><g fill='%23A8C5A0'><ellipse cx='9' cy='9' rx='3' ry='4.5' transform='rotate(-45 9 9)'/><ellipse cx='23' cy='9' rx='3' ry='4.5' transform='rotate(45 23 9)'/><ellipse cx='9' cy='23' rx='3' ry='4.5' transform='rotate(45 9 23)'/><ellipse cx='23' cy='23' rx='3' ry='4.5' transform='rotate(-45 23 23)'/></g><circle cx='16' cy='16' r='4' fill='%23F0D070'/></svg>">
+
+    <style>
+        *, *::before, *::after {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        :root {
+            --wood: #8B5E3C;
+            --wood-light: #C4885A;
+            --green: #4A7C59;
+            --orange: #C85A1A;
+            --cream: #FAF6EF;
+            --ink: #2C1F0E;
+            --ink-soft: #5C4A30;
+            --rule: #D4C4A8;
+        }
+
+        body {
+            background-color: #F0E8D8;
+            background-image: radial-gradient(ellipse at 20% 10%, rgba(200,180,140,.3) 0%, transparent 55%), radial-gradient(ellipse at 80% 90%, rgba(74,124,89,.14) 0%, transparent 55%);
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 3rem 1.5rem;
+            font-family: 'Lora', Georgia, serif;
+            color: var(--ink);
+        }
+
+        .paper {
+            background: var(--cream);
+            max-width: 600px;
+            width: 100%;
+            border-radius: 2px;
+            box-shadow: 0 6px 24px rgba(44,31,14,.09), 0 24px 64px rgba(44,31,14,.07);
+            overflow: hidden;
+            animation: rise 1s cubic-bezier(.16,1,.3,1) both;
+        }
+
+        @keyframes rise {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .wood-strip {
+            height: 12px;
+            background: repeating-linear-gradient( 90deg, var(--wood) 0px, var(--wood-light) 9px, var(--wood) 20px, #7A5230 32px, var(--wood) 42px );
+        }
+
+            .wood-strip.bottom {
+                height: 8px;
+                opacity: .8;
+            }
+
+        .houses {
+            display: flex;
+            justify-content: center;
+            align-items: flex-end;
+            gap: 2px;
+            padding: 2rem 2rem .2rem;
+            animation: rise 1s .08s cubic-bezier(.16,1,.3,1) both;
+        }
+
+        .body-area {
+            display: grid;
+            grid-template-columns: 32px 1fr;
+            margin-top: .6rem;
+        }
+
+        .margin-line {
+            border-right: 1.5px solid rgba(200,90,26,.32);
+        }
+
+        .letter-content {
+            padding: 1.8rem 2.8rem 1.8rem 1.4rem;
+            background-image: repeating-linear-gradient( to bottom, transparent, transparent 31px, rgba(180,160,120,.22) 31px, rgba(180,160,120,.22) 32px );
+            line-height: 2rem;
+        }
+
+        .date-line {
+            font-family: 'Playfair Display', serif;
+            font-style: italic;
+            font-size: .78rem;
+            color: var(--ink-soft);
+            letter-spacing: .06em;
+            margin-bottom: 1.4rem;
+            opacity: 0;
+            animation: fin .5s .4s forwards;
+        }
+
+        .salutation {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.25rem;
+            font-weight: 500;
+            color: var(--green);
+            margin-bottom: 1.1rem;
+            opacity: 0;
+            animation: fin .5s .55s forwards;
+        }
+
+        .line {
+            display: block;
+            opacity: 0;
+            font-size: .96rem;
+            line-height: 2rem;
+            animation: fin .45s forwards;
+        }
+
+            .line:nth-child(1) {
+                animation-delay: .70s
+            }
+
+            .line:nth-child(2) {
+                animation-delay: .84s
+            }
+
+            .line:nth-child(3) {
+                animation-delay: .98s
+            }
+
+            .line:nth-child(4) {
+                animation-delay: 1.12s
+            }
+
+            .line:nth-child(5) {
+                animation-delay: 1.26s
+            }
+
+            .line:nth-child(6) {
+                animation-delay: 1.40s
+            }
+
+            .line:nth-child(7) {
+                animation-delay: 1.54s
+            }
+
+            .line:nth-child(8) {
+                animation-delay: 1.68s
+            }
+
+            .line:nth-child(9) {
+                animation-delay: 1.82s
+            }
+
+            .line:nth-child(10) {
+                animation-delay: 1.96s
+            }
+
+            .line:nth-child(11) {
+                animation-delay: 2.10s
+            }
+
+            .line:nth-child(12) {
+                animation-delay: 2.10s
+            }
+
+        .signature-block {
+            padding: 1.2rem 2.8rem 2.2rem 0;
+            display: flex;
+            flex-direction: column;
+            align-items: flex-end;
+            gap: .3rem;
+            opacity: 0;
+            animation: fin .5s 2.4s forwards;
+        }
+
+        .sig-label {
+            font-family: 'Playfair Display', serif;
+            font-style: italic;
+            font-size: .78rem;
+            color: var(--ink-soft);
+        }
+
+        .sig-name {
+            font-family: 'Playfair Display', serif;
+            font-style: italic;
+            font-size: 1.5rem;
+            color: var(--wood);
+        }
+
+        .divider {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 7px;
+            padding: 0 2rem 1.6rem;
+            opacity: 0;
+            animation: fin .5s 2.7s forwards;
+        }
+
+        .divider-line {
+            flex: 1;
+            height: 1px;
+            background: var(--rule);
+        }
+
+        .divider-dot {
+            width: 5px;
+            height: 5px;
+            border-radius: 50%;
+            background: var(--wood-light);
+        }
+
+        @keyframes fin {
+            from {
+                opacity: 0;
+                transform: translateY(5px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+    </style>
+</head>
+<body>
+<div class="paper">
+  <div class="wood-strip"></div>
+
+  <div class="houses">
+    <svg width="62" height="82" viewBox="0 0 62 82" xmlns="http://www.w3.org/2000/svg">
+      <polygon points="31,3 60,27 2,27" fill="#8B5E3C"/>
+      <rect x="3" y="25" width="56" height="55" fill="#fff"/>
+      <rect x="3" y="46" width="56" height="34" fill="#4A7C59"/>
+      <rect x="23" y="54" width="16" height="26" rx="8" fill="#7A5230"/>
+      <rect x="7" y="31" width="14" height="10" rx="1" fill="#C4885A" opacity=".65"/>
+      <rect x="41" y="31" width="14" height="10" rx="1" fill="#C4885A" opacity=".65"/>
+    </svg>
+    <svg width="50" height="70" viewBox="0 0 50 70" style="margin-bottom:10px" xmlns="http://www.w3.org/2000/svg">
+      <polygon points="25,3 48,21 2,21" fill="#8B5E3C"/>
+      <rect x="2" y="19" width="46" height="49" fill="#D4C09A"/>
+      <rect x="17" y="44" width="16" height="24" rx="8" fill="#7A5230"/>
+      <rect x="5" y="25" width="12" height="9" rx="1" fill="#C4885A" opacity=".6"/>
+      <rect x="33" y="25" width="12" height="9" rx="1" fill="#C4885A" opacity=".6"/>
+    </svg>
+    <svg width="44" height="62" viewBox="0 0 44 62" style="margin-bottom:18px" xmlns="http://www.w3.org/2000/svg">
+      <polygon points="22,3 42,19 2,19" fill="#8B5E3C"/>
+      <rect x="2" y="17" width="40" height="43" fill="#A8C5A0"/>
+      <rect x="14" y="38" width="16" height="22" rx="8" fill="#7A5230"/>
+      <rect x="4" y="23" width="11" height="8" rx="1" fill="#C4885A" opacity=".6"/>
+      <rect x="29" y="23" width="11" height="8" rx="1" fill="#C4885A" opacity=".6"/>
+    </svg>
+    <svg width="58" height="78" viewBox="0 0 58 78" xmlns="http://www.w3.org/2000/svg">
+      <polygon points="29,3 56,25 2,25" fill="#8B5E3C"/>
+      <rect x="2" y="23" width="54" height="53" fill="#F0D070"/>
+      <rect x="21" y="50" width="16" height="26" rx="8" fill="#7A5230"/>
+      <rect x="6" y="29" width="14" height="10" rx="1" fill="#C4885A" opacity=".6"/>
+      <rect x="38" y="29" width="14" height="10" rx="1" fill="#C4885A" opacity=".6"/>
+    </svg>
+    <svg width="54" height="92" viewBox="0 0 54 92" xmlns="http://www.w3.org/2000/svg">
+      <polygon points="27,3 52,23 2,23" fill="#8B5E3C"/>
+      <rect x="2" y="21" width="50" height="69" fill="#fff"/>
+      <rect x="2" y="48" width="50" height="42" fill="#C85A1A"/>
+      <rect x="19" y="62" width="16" height="28" rx="8" fill="#7A5230"/>
+      <rect x="5" y="27" width="13" height="9" rx="1" fill="#C4885A" opacity=".6"/>
+      <rect x="36" y="27" width="13" height="9" rx="1" fill="#C4885A" opacity=".6"/>
+      <rect x="5" y="43" width="13" height="9" rx="1" fill="#C4885A" opacity=".45"/>
+      <rect x="36" y="43" width="13" height="9" rx="1" fill="#C4885A" opacity=".45"/>
+    </svg>
+  </div>
+
+  <div class="body-area">
+    <div class="margin-line"></div>
+    <div class="letter-content">
+        <div class="date-line">02 Mayıs 2026</div>
+        <div class="salutation">Dostum Dilom,</div>
+        <span class="line">Bu hediyeyi seçerken düşündüğüm şey şuydu:</span>
+        <span class="line">her gün elinle dokunacağın, aklına beni düşüreceğin</span>
+        <span class="line">bir şey olsun. Çünkü sen yeni bir kapı araladın —</span>
+        <span class="line">ve ben de o eşikte senin yanında durmak istedim.</span>
+        <span class="line">&nbsp;</span>
+        <span class="line">Artık her anahtarını aldığında, eve döndüğünde,</span>
+        <span class="line">o kilidi çevirdiğinde — varlığımda orada</span>
+        <span class="line">asılı duracak. Sessizce, ama hep yanında.</span>
+        <span class="line">&nbsp;</span>
+        <span class="line">Her zaman iyi ki dediğin günlerin başlangıcı olsun bu adımın</span>
+        <span class="line">Hep mutlu ol</span>
+
+    </div>
+  </div>
+
+  <div class="signature-block">
+
+      <span class="sig-label">Güllerin Gülü, Aşkoların Aşkosu, Dostların Dostu</span>
+      <span class="sig-label">Hep muhabbet ve sevgiyle</span>
+      <span class="sig-label">Seni çok seviyorum</span>
+      <span class="sig-name">[Sümeyye Özen]</span>
+  </div>
+
+  <div class="divider">
+    <div class="divider-line"></div>
+    <div class="divider-dot"></div>
+    <div class="divider-dot"></div>
+    <div class="divider-dot"></div>
+    <div class="divider-line"></div>
+  </div>
+
+  <div class="wood-strip bottom"></div>
+</div>
+</body>
+</html>
